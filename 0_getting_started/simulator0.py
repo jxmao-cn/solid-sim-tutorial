@@ -4,7 +4,7 @@ import math
 import numpy as np  # for vector data structure and computations
 import pygame       # for visualization
 
-# simulation setup
+# simulation setup 第一个分量表示横坐标，第二个分量表示纵坐标
 x = np.array([0.0, 0.0])    # position of particle
 v = np.array([0.0, 0.0])    # velocity of particle
 g = np.array([0.0, -10.0])  # gravitational acceleration
@@ -44,7 +44,7 @@ while running:
         input()
         break
 
-    # step forward the simulation by updating particle velocity and position
+    # step forward the simulation by updating particle velocity and position 半隐式欧拉
     v += h * g
     x += h * v
 
