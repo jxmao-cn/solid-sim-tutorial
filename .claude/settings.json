@@ -1,0 +1,17 @@
+{
+  "model": "claude-haiku-4-5-20251001",
+  "hooks": {
+    "SessionEnd": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /home/steven/mjx/solid-sim-tutorial/.claude/scripts/progress_session_end.py",
+            "timeout": 600
+          }
+        ]
+      }
+    ]
+  }
+}
