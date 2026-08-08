@@ -45,7 +45,7 @@ while running:
     # step forward the simulation by updating particle velocity and position
     spring_cur_len = math.sqrt(x[0] * x[0] + x[1] * x[1]) ###
     spring_displacement = spring_cur_len - spring_rest_len ###
-    spring_force = -spring_stiffness * spring_displacement * (x / spring_cur_len) ###
+    spring_force = -spring_stiffness * spring_displacement * (x / spring_cur_len) ### x是一个向量，因此可以直接计算
     v += h * (g + spring_force / m)
     x += h * v
 

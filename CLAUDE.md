@@ -26,6 +26,7 @@
 ## 工具链约定
 
 - **`PROGRESS.md`**：SessionEnd hook（`.claude/settings.json` → `.claude/scripts/progress_session_end.py`）在每次 Claude 会话结束时自动追加一条中文进度条目。这是"自上次组会进度"的唯一事实来源。**勿手工编辑已有条目**；会话外的补记可直接 append 新条目。
+- **`TOOLCHAIN.md`**：整套工具链的原理与使用说明（hook 自动记录、`/组会报告` 命令、证据收集器、无头截图、故障排查）。
 - **`/组会报告`**（别名 `/group-report`）：一键生成双语组会报告到 `reports/组会报告_YYYY-MM-DD.md` 并更新 `reports/index.md`；不改 PROGRESS.md。
 - **平板公式笔记**：本期未接入，约定 `formula-<date>.pdf` 放 `reports/formula/`，后续版本自动嵌入报告第 4 节。
 - **报告语言**：中文正文 + 每节一段英文 summary（固定模板见 `reports/` 既有报告）。

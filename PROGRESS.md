@@ -20,3 +20,21 @@
 - 英文摘要: Completed a reusable Newton solver module with two visualization demos (including a nonlinear-spring backward Euler), cross-validated against scipy, paving the way for a backward Euler submodule.
 - git HEAD: 4608cae
 
+## 2026-08-07 — session 4e72bd1d
+- 阅读内容: 通读 0_getting_started/ 既有教程代码（readme.md、simulator1.py 等）作为工具链参考；查证 solid-sim 环境（numpy 2.2.6、scipy 1.15.3、pygame 2.6.1）中 scipy 牛顿法实现（optimize.newton/fsolve/root/newton_krylov）
+- 代码实现: 学习工具链：.claude/scripts/progress_session_end.py（SessionEnd hook：transcript 摘录→claude -p 六标签摘要→PROGRESS.md，修复不支持 --disable-hooks、补 tool_result 块处理、六标签行规范化）；.claude/commands/组会报告.md + group-report 别名；.claude/settings.json 持久化 haiku 模型；修复 tools/pygame_shim/pygame/__init__.py 的 dirname 层级 bug；手写样例报告 reports/组会报告_2026-08-07.md 并更新 reports/index.md
+- 验证/效果: Hook 全链路干跑通过（真实 transcript 入库、同 session 重跑去重、空会话跳过，均 exit 0）；tools/changes_since.py 冒烟通过（提交/文件/5 个 gif/obj 8505 帧）；tools/headless_capture.py 对 simulator1.py 15 秒截 186 张 900×900 有效 PNG，10 章 MPM 正确 SKIP；提交 f6b1d85（11 文件 801 行）
+- 想法/设想: 权限分类器 pro 级模型不可用导致 Bash 阻塞，改 haiku 级并持久化进项目 settings；hook 递归防护以 CLAUDE_PROGRESS_SKIP 环境变量为主防线（--disable-hooks 不可用则去掉）；工具链提交不含用户学习文件（newton.py/readme.md/simulator1.py 留待处理）
+- 下一步: 提交工作树中的学习文件 newton.py、readme.md、simulator1.py（作为下一份组会报告核心证据）；继续在 newton.py 基础上实现多维后向欧拉子模块（残差 M(q - q_n - h v_n) - h² f(q) = 0，雅可比 M - h² ∂f/∂q）
+- 英文摘要: This session built and end-to-end verified the learning-progress toolchain (SessionEnd hook → PROGRESS.md, /组会报告 command, evidence collectors, headless capture) and committed it as f6b1d85, with a multi-dimensional backward-Euler module as the next learning step.
+- git HEAD: f6b1d85
+
+## 2026-08-08 — session 373eb514
+- 阅读内容: 通读工具链各组件源码以核对文档与实现：.claude/settings.json、.claude/scripts/progress_session_end.py、.claude/commands/组会报告.md、.claude/commands/group-report.md、tools/changes_since.py、tools/headless_capture.py、tools/pygame_shim/pygame/__init__.py
+- 代码实现: 在仓库根目录新建 TOOLCHAIN.md（三条链路原理：SessionEnd hook 自动记 PROGRESS.md、/组会报告 一键生成双语报告、证据收集器；附使用方法表与故障排查表）；Edit CLAUDE.md 工具链约定节补一行 TOOLCHAIN.md 索引
+- 验证/效果: 逐文件核对文档叙述与实际实现一致后落盘；TOOLCHAIN.md 与 CLAUDE.md 改动当前未提交 git
+- 想法/设想: 把工具链使用说明文档化为三种场景（平时零操作 / 组会前一条命令 / 手动收证据），固定于仓库供后续会话自取
+- 下一步: 提交 TOOLCHAIN.md 与 CLAUDE.md 改动（commit "Add TOOLCHAIN.md usage doc"）；继续在 newton.py 基础上实现多维后向欧拉子模块（残差 M(q-q_n-hv_n)-h²f(q)=0，雅可比 M-h²∂f/∂q）
+- 英文摘要: This session verified the learning-toolchain components against their sources and fixed the usage documentation as TOOLCHAIN.md at the repo root (plus a CLAUDE.md index line), awaiting commit, with the multi-dimensional backward-Euler module as the next learning step.
+- git HEAD: f6b1d85
+

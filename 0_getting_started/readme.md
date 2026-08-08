@@ -20,3 +20,8 @@ Hanging square:
 ```
 python simulator2.py
 ```
+Newton's method (the nonlinear solver that implicit/backward Euler time integration relies on):
+```
+python newton.py           # scalar root finding f(x)=x^2+3x-12 with tangent-line visualization
+python newton.py spring    # implicit (backward) Euler spring: Newton solves one nonlinear system per time step
+```
