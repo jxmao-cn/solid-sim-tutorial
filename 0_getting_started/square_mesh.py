@@ -10,15 +10,15 @@ def generate(side_length, n_seg):
     
     # connect the nodes with edges
     e = []
-    # horizontal edges
+    # horizontal edges 水平边
     for i in range(0, n_seg):
         for j in range(0, n_seg + 1):
             e.append([i * (n_seg + 1) + j, (i + 1) * (n_seg + 1) + j])
-    # vertical edges
+    # vertical edges 垂直边
     for i in range(0, n_seg + 1):
         for j in range(0, n_seg):
             e.append([i * (n_seg + 1) + j, i * (n_seg + 1) + j + 1])
-    # diagonals
+    # diagonals 对角线
     for i in range(0, n_seg):
         for j in range(0, n_seg):
             e.append([i * (n_seg + 1) + j, (i + 1) * (n_seg + 1) + j + 1])
