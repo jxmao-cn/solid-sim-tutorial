@@ -22,7 +22,7 @@ PROGRESS_PATH = os.path.join(REPO_ROOT, "PROGRESS.md")
 # 子调用摘要用模型；留空表示继承当前会话模型。成本控制靠 max_turns + NONE 约定。
 SUMMARY_MODEL = ""  # 例如 "haiku-4-5-20251001" 或 ""(继承)
 MAX_TURNS = 6
-EXCERPT_MESSAGES = 120   # 提取 transcript 尾部消息条数
+EXCERPT_MESSAGES = 120   # 提取 transcript 的消息条数（超出则全文等间隔采样）
 MAX_MSG_CHARS = 1500     # 每条消息截断长度
 MAX_EXCERPT_CHARS = 200_000
 
@@ -110,7 +110,7 @@ def session_has_work(transcript_path):
 
 
 def build_excerpt(transcript_path):
-    """提取尾部消息成紧凑文本，供子会话摘要。"""
+    """把 transcript 消息压缩成紧凑文本，供子会话摘要。超过上限时全文等间隔采样，保证头部与尾部内容都能进摘录。"""
     messages = []
     try:
         with open(transcript_path, "r", encoding="utf-8", errors="replace") as f:
@@ -129,7 +129,10 @@ def build_excerpt(transcript_path):
     except Exception as e:
         log_err(f"transcript 提取失败: {e}")
         return None
-    messages = messages[-EXCERPT_MESSAGES:]
+    # 全文等间隔采样（含首尾）：会话很长时只取尾部会丢掉开头内容
+    if len(messages) > EXCERPT_MESSAGES:
+        step = (len(messages) - 1) / (EXCERPT_MESSAGES - 1)
+        messages = [messages[int(round(i * step))] for i in range(EXCERPT_MESSAGES)]
     excerpt = "\n\n".join(messages)
     return excerpt[:MAX_EXCERPT_CHARS]
 

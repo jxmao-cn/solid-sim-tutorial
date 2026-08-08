@@ -2,7 +2,7 @@
 
 ## 项目目标
 
-物理仿真自主学习的复现仓库（fork 自 phys-sim-book/solid-sim-tutorial）。学习流程：读 `/home/steven/mjx/phys-sim-book` 的 mdBook 对应章节 → 在本仓库复现代码、提出设想并用代码验证 → 用 `PROGRESS.md` + `reports/` 向导师定期组会汇报。最终目标是为复现 `/home/steven/mjx/Elastogen`（优化式弹性动力学，local-global/投影动力学家族）打基础。
+物理仿真自主学习的复现仓库（fork 自 phys-sim-book/solid-sim-tutorial）。学习流程：读 phys-sim-book 的 mdBook 对应章节（本机路径随机器而异：Linux 原机为 `/home/steven/mjx/phys-sim-book`；本 Mac 尚未 clone，需要时另定）→ 在本仓库复现代码、提出设想并用代码验证 → 用 `PROGRESS.md` + `reports/` 向导师定期组会汇报。最终目标是为复现 Elastogen（优化式弹性动力学，local-global/投影动力学家族，本机位于 `~/Documents/GitHub/elastogen`）打基础。
 
 ## 环境
 

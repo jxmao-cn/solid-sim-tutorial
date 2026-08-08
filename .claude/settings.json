@@ -7,7 +7,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "python3 /home/steven/mjx/solid-sim-tutorial/.claude/scripts/progress_session_end.py",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/scripts/progress_session_end.py\"",
             "timeout": 600
           }
         ]
