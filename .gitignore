@@ -2,3 +2,6 @@
 test.py
 *.pyc
 output/
+
+# 各机器本地维护，不同步（机内路径如 phys-sim-book / Elastogen 位置随机器而异）
+CLAUDE.md
