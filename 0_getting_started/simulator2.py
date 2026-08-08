@@ -7,9 +7,15 @@ import square_mesh  # for generating a square mesh
 
 # simulation setup
 side_length = 1             # side length of the square
-n_seg = 4                   # number of springs per side of the square
+n_seg = 4                  # number of springs per side of the square
 m = 1000                    # mass of each particle
-[x, e] = square_mesh.generate(side_length, n_seg)   # array of particle positions and springs   ###
+[x, e] = square_mesh.generate(side_length, n_seg)   # array of particle positions and springs   
+
+'''
+x：所有节点的坐标（(n_seg+1)² 行、2 列的数组）
+e：所有边的列表，每条边是两端节点的索引 [i, j]
+'''
+
 v = np.array([[0.0, 0.0]] * len(x))     # velocity array of particles ###
 g = np.array([0.0, -10.0])  # gravitational acceleration
 spring_rest_len = []        # rest length array of the springs ###
